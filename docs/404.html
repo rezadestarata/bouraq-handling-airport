@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Bouraq Handling Airport</title>
+    <!-- Gunakan CSS yang sama dengan halaman utama -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Tambahkan style khusus 404 yang sudah ada */
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .error-content {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .error-number {
+            font-size: 12rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .plane-icon {
+            font-size: 4rem;
+            color: #D4AF37;
+            position: absolute;
+            animation: flyPlane 15s linear infinite;
+        }
+        
+        .btn-back {
+            background: linear-gradient(45deg, #D4AF37, #FFD700);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes flyPlane {
+            0% { left: -10%; top: 20%; transform: rotate(45deg); }
+            100% { left: 110%; top: 60%; transform: rotate(45deg); }
+        }
+        
+        .clouds {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm custom-nav">
+        <div class="container">
+            <a class="navbar-brand py-1" href="/bouraq-handling-airport/">
+                <img src="images/logo.png" alt="Bouraq Handling Airport Logo" height="30" width="auto" fetchpriority="high">
+            </a>
+        </div>
+    </nav>
+
+    <!-- 404 Content -->
+    <div class="error-page">
+        <div class="clouds"></div>
+        <i class="fas fa-plane plane-icon"></i>
+        <div class="container">
+            <div class="error-content">
+                <div class="error-number">404</div>
+                <h1 class="display-4 mb-4">Oops! Flight Not Found</h1>
+                <p class="lead mb-4">Looks like this page has departed to an unknown destination. Let's get you back on track!</p>
+                <a href="/bouraq-handling-airport/" class="btn btn-back">
+                    <i class="fas fa-home me-2"></i>Return to Terminal
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Script clouds tetap sama
+        function createClouds() {
+            const clouds = document.querySelector('.clouds');
+            for(let i = 0; i < 20; i++) {
+                const cloud = document.createElement('i');
+                cloud.className = 'fas fa-cloud';
+                cloud.style.position = 'absolute';
+                cloud.style.left = Math.random() * 100 + '%';
+                cloud.style.top = Math.random() * 100 + '%';
+                cloud.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                cloud.style.opacity = Math.random() * 0.5;
+                clouds.appendChild(cloud);
+            }
+        }
+        createClouds();
+    </script>
+</body>
+</html>
