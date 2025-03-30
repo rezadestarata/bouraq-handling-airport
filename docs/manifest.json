@@ -1,0 +1,39 @@
+{
+  "name": "Bouraq Handling Airport - Professional Airport Services Jakarta",
+  "short_name": "Bouraq Airport",
+  "description": "Leading airport services provider in Indonesia. Professional passenger handling, premium Umrah & Hajj services, VIP assistance at Soekarno-Hatta International Airport",
+  "start_url": "/bouraq-handling-airport/",
+  "scope": "/bouraq-handling-airport/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#D4AF37",
+  "orientation": "any",
+  "categories": ["travel", "business", "transportation"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot1.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Bouraq Airport Services"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

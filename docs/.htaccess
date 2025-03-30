@@ -1,0 +1,42 @@
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# CORS Headers - More Restrictive
+Header set Access-Control-Allow-Origin "https://rezadestarata.github.io"
+Header set Access-Control-Allow-Methods "GET"
+Header set Access-Control-Allow-Headers "Origin, Content-Type"
+Header set Access-Control-Max-Age "86400"
+Header unset Access-Control-Allow-Credentials
+
+# Enhanced Security Headers
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "DENY"
+Header set X-XSS-Protection "1; mode=block"
+Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+Header set Referrer-Policy "no-referrer"
+Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), screen-wake-lock=(), ambient-light-sensor=(), accelerometer=(), gyroscope=(), magnetometer=(), midi=(), sync-xhr=(), fullscreen=(self), payment=(), encrypted-media=()"
+
+# Strict Cache Control
+Header set Cache-Control "private, no-cache, no-store, must-revalidate, max-age=0"
+Header set Pragma "no-cache"
+Header set Expires "0"
+
+# Enhanced Cookie Security
+Header edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict;Domain=rezadestarata.github.io;Path=/
+
+# Additional Security Measures
+Options -Indexes -MultiViews -FollowSymLinks
+ServerSignature Off
+FileETag None
+
+# Block Suspicious User Agents
+RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
+RewriteCond %{HTTP_USER_AGENT} ^(java|curl|wget).* [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^.*(libwww-perl|wget|python|nikto|curl|scan|java|winhttp|clshttp|loader).* [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^.*(HTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner).* [NC]
+RewriteRule .* - [F,L]
+
+# Prevent Directory Browsing
+IndexIgnore *

@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /temp/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /*.html$
+
+# Add crawl-delay for better server performance
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://rezadestarata.github.io/bouraq-handling-airport/sitemap.xml
